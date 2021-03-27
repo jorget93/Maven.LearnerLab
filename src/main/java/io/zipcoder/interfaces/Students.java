@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Students extends People{
 
-    private static final Students = new Students();
-    List<Student> INSTANCE = new ArrayList<Student>();
+    private static final Students INSTANCE = new Students();
+    List<Student> classList = new ArrayList<Student>();
     public Student Jorge = new Student(1,"Jorge");
     public Student Greg = new Student(2,"Greg");
     public Student Kelly = new Student(3,"Kelly");
@@ -23,14 +23,14 @@ public class Students extends People{
     public Student Ryan = new Student(14, "Ryan");
 
     private Students(){
-        INSTANCE.add(Jorge);INSTANCE.add(Greg);INSTANCE.add(Kelly);
-        INSTANCE.add(Chris);INSTANCE.add(Abe);INSTANCE.add(Hazel);
-        INSTANCE.add(Justin);INSTANCE.add(Theresa);INSTANCE.add(Monali);
-        INSTANCE.add(Ashley);INSTANCE.add(Lena);INSTANCE.add(Mike);
-        INSTANCE.add(Xiong);INSTANCE.add(Ryan);
+        classList.add(Jorge);classList.add(Greg);classList.add(Kelly);
+        classList.add(Chris);classList.add(Abe);classList.add(Hazel);
+        classList.add(Justin);classList.add(Theresa);classList.add(Monali);
+        classList.add(Ashley);classList.add(Lena);classList.add(Mike);
+        classList.add(Xiong);classList.add(Ryan);
     }
 
-    public List<Student> getInstance(){
+    public static Students getInstance(){
         return INSTANCE;
     }
 }
