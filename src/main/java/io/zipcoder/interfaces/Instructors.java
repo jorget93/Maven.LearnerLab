@@ -3,7 +3,7 @@ package io.zipcoder.interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Instructors extends People implements Teacher {
+public class Instructors extends People<Instructor> implements Teacher {
 
     private static final Instructors INSTANCE = new Instructors();
     List<Instructor> teacherList = new ArrayList<Instructor>();
@@ -24,9 +24,9 @@ public class Instructors extends People implements Teacher {
     public static Instructors getInstance(){return INSTANCE;}
 
     public Person findInstructorById(long id){
-        for(Person person: personList){
-            if(person.getId() == id){
-                return person;
+        for(Instructor teacher: teacherList){
+            if(teacher.getId() == id){
+                return teacher;
             }
         }return null;
     }
@@ -40,5 +40,14 @@ public class Instructors extends People implements Teacher {
         for(Learner learner: learners){
             learner.learn(numberOfHoursPerLearner);
         }
+    }
+    @Override
+    public Instructor[] getArray() {
+        int counter = 0;
+        Instructor[] teacherArray = new Instructor[teacherList.size()];
+        for(Instructor teacher: teacherList){
+            teacherArray[counter] = teacher;
+            counter++;
+        }return teacherArray;
     }
 }

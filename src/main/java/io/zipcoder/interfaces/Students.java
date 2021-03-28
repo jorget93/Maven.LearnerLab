@@ -3,7 +3,7 @@ package io.zipcoder.interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Students extends People{
+public class Students extends People<Student>{
 
     private static final Students INSTANCE = new Students();
     List<Student> classList = new ArrayList<Student>();
@@ -32,5 +32,15 @@ public class Students extends People{
 
     public static Students getInstance(){
         return INSTANCE;
+    }
+
+    @Override
+    public Student[] getArray() {
+        int counter = 0;
+        Student[] studentArray = new Student[classList.size()];
+        for(Person person: classList){
+            studentArray[counter] = (Student) person;
+            counter++;
+        }return studentArray;
     }
 }
